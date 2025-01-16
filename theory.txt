@@ -1,0 +1,85 @@
+#two layers are 
+ -UI layer- waht we see is the UI layer
+ -data layer- what we write inside code it powers the UI layer
+
+ passing data, state , prop are part of data layer
+
+
+
+##handling data in app
+context was used to avoid prop drilling
+context is a central place aby conponent ia app can use it and update it 
+we can use it for: to switch between light an d dark theme
+insdead of creating diffrent context we can use redux
+
+
+#REDUX: it is a library used for large application
+
+pros- to manage our data layer 
+
+cons -complex to setup
+     -huge learning curve
+
+redux vs reduxtoolkit    
+
+--redux store is like big object have diffrent section 
+each store has diffrent slices
+-authentication slices
+-cart slices
+-theme slice
+-user slices
+
+*action
+*dispatich
+
+**we can not directly modify the store
+when we click on add button in product we 
+1)will DISPATCH an ACTION , 
+2)the action will call the REDUCER function(this function is called REDUCER), 
+3)function will modify the SLICE of the store(cart)
+4)if we want to read cart we have to call the SELECTOR(selector is a hook)
+5) this SELECTOR will give the info that will update the cart\
+
+write cycle [click (+) => dispatches(ACTION) =>calls (REDUCER function) =>update (SLICE of the store) ]=>
+read cycle  [read data it using (SELECTOR) => update the cart]
+
+--cart component subscribed to the store means it is reading some thing from the store
+  (means whenever the store modify the cart will autometically modify in UI)
+
+
+
+
+ 
+      APPlication                                 REDUX STORE
+--------------------------                --------------------------
+|  ------------------    |                |                        |
+|  |        cart(2) |    |                |  ------------------    |
+|  -----------------     |                |  |     SLICE      |    | 
+|    ___    --------     |                |  -----------------     |
+|   |   |  |      + |    |                |  ------------------    |
+|   |   |   --------     |                |  |     user       |    | 
+|   |   |                |                |  -----------------     |
+|   |   |   --------     |                |                        |
+|   |   |  |      + |    |                |  ------------------    |
+|   |   |   --------     |                |  |     cart      |     | 
+|   |   |                |                |  -----------------     |
+|   |   |   --------     |                |                        |
+|   |   |  |      + |    |                |  ------------------    |
+|   |___|   --------     |                |  |     theme      |    | 
+|                        |                |  -----------------     |
+|________________________|                |________________________|
+   
+
+
+1) initalize the redux library
+-npm install @reduxjs/toolkit (core library of redux)
+-npm install react-redux (bridge between redux and react)
+
+
+
+what we suscribe to gives the major optimization
+if we subscribe to store it will rerender every time there is a change in store
+we should subscribe to specific portion of the store it will optimize the code
+
+const cartItem = useSelector((store)=>store.cart.items) {it is better}
+const cartItem = useSelector((store)=>store)

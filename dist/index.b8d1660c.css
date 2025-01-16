@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.header {
+  background-color: #d4a2be;
+  border: 1px solid #75597d;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  display: flex;
+}
+
+button {
+  color: #fff;
+  background-color: #75597d;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  padding: 10px 17px;
+  font-size: 17px;
+}
+
+.nav-items > ul {
+  list-style: none;
+  display: flex;
+}
+
+.nav-items > ul > li {
+  padding: 10px;
+}
+
+.nav-items > ul > li a {
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.logo {
+  width: 100px;
+}
+
+.search-container {
+  background-color: #b0b8b4;
+  border: 1px solid #75597d;
+  margin: 20px 10px;
+  padding: 20px;
+}
+
+.search-container .search-input {
+  border: none;
+  outline: none;
+  margin-inline: 8px;
+  padding: 6px;
+  font-size: 17px;
+}
+
+.search-container .search-btn {
+  background-color: #75597d;
+  border: 1px solid #75597d;
+  border-radius: 6px;
+  outline: none;
+  margin: 0;
+  padding: 6px 12px;
+  font-size: 17px;
+}
+
+.card {
+  background-color: #d4a2be;
+  border: 1px solid #75597d;
+  border-radius: 10px;
+  width: 250px;
+  min-height: 500px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.card img {
+  width: 100%;
+  height: 250px;
+}
+
+.rest-list {
+  grid-template-columns: repeat(5, 1fr);
+  place-items: start center;
+  gap: 20px;
+  display: grid;
+}
+
+.restraunt-list {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+  display: flex;
+}
+
+.restraunt-list .shimmer-card {
+  background: linear-gradient(#faf9f980, #a6a6a480);
+  justify-content: center;
+  align-items: center;
+  width: 270px;
+  height: 400px;
+  animation: 2s infinite shimmer;
+}
+
+.restMenu {
+  gap: 40px;
+  display: flex;
+}
+
+.section-box {
+  background-color: #d4a2be;
+  border: 1px solid gray;
+  margin: 10px;
+  padding: 10px;
+  font-family: sans-serif;
+}
+
+.section-box button {
+  margin: 0;
+}
+
+.footer {
+  color: #fff;
+  text-align: center;
+  background-color: #d4a2be;
+  border: 1px solid #75597d;
+  width: 100%;
+  margin: 20px 0 0;
+  padding: 30px 10px;
+  position: absolute;
+}
+
+li {
+  list-style: none;
+}
+/*# sourceMappingURL=index.b8d1660c.css.map */

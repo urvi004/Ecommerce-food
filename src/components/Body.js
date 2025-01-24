@@ -1,9 +1,5 @@
-// https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING
-// https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.29844139999999&lng=77.99313599999999&page_type=DESKTOP_WEB_LISTING
-
-import { restList } from "../constant";
 import RestrauntCard from "./RestrauntCard";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import Shimmer from "./loader";
 import { Link } from "react-router-dom";
 import { Filter } from "../utils/helper";
@@ -18,17 +14,11 @@ const Body = () => {
 
   const { user, setUser } = useContext(UserContext);
 
-  console.log("render()");
-
-  // online/offline
   if (!isOnline) {
     return <h1>You are offline</h1>;
   }
-  console.log(!isOnline);
-  // not render component (Early return)
-  if (!allRestraunt) return null;
 
-  // Conditional rendering
+  if (!allRestraunt) return null;
   return allRestraunt.length == 0 ? (
     <Shimmer />
   ) : (
@@ -38,16 +28,12 @@ const Body = () => {
           text="text"
           placeholder="search"
           className="search-input"
-          //   value={serchTxt}   //one way data binding value will not change serchTxt val
           value={searchText}
-          //   onChange={(e) =>console.log(e.target.value)}
           onChange={(e) => setSearchText(e.target.value)}
         />
-        {/* <text>{count}</text> */}
         <button
           className="search-btn"
           onClick={() => {
-            // need to filter the data
             const data = Filter(allRestraunt, searchText);
             setFiltredResturant(data);
           }}

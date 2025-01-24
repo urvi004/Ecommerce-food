@@ -1,31 +1,27 @@
 import { useEffect, useState } from "react";
 
 const useOnline = () => {
+  const [isOnline, setIsOnline] = useState(true);
 
-    const [isOnline, setIsOnline] = useState(true);
+  useEffect(() => {
+    const handleOnline = () => {
+      setIsOnline(true);
+    };
 
-    useEffect(()=>{
+    const handleOffline = () => {
+      setIsOnline(false);
+    };
 
-        const handleOnline = ()=>{
-            setIsOnline(true);
-        }
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
 
-        const handleOffline = ()=>{
-            setIsOnline(false);
-        }
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
 
-        window.addEventListener('online',handleOnline);
-        window.addEventListener('offline',handleOffline);
-
-        // for component will unMount
-        return ()=>{
-            window.removeEventListener('online', handleOnline);
-            window.removeEventListener('offline', handleOffline);
-        }
-    },[])
-
-    return isOnline;
-
-}
+  return isOnline;
+};
 
 export default useOnline;

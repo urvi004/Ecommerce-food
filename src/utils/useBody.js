@@ -6,14 +6,13 @@ const useBody = () => {
     const [filteredRestraunt, setFiltredResturant] = useState([]);
     const [allRestraunt, setAllResturant] = useState([]);
 
-    useEffect((rest) =>{
+    useEffect(() =>{
         getRestraunt();
       },[]);
 
       async function getRestraunt(){
         const data = await fetch(DESKTOP_WEB_LISTING);
         const json = await data.json();
-        console.log(json)
         setFiltredResturant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
         setAllResturant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
       }
